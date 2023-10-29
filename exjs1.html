@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript</title>
+        
+    </head>
+    <body>
+        <div class="basic_array">
+            <h2>What Can JavaScript Do?</h2>
+
+            <p id="demo">JavaScript can change HTML content.</p>
+            <button type="button" onclick="document.getElementById('demo').innerHTML = 'Hello JavaScript!'">Click me!</button>
+            
+            <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+            <button onclick="document.getElementById('myImage').src = 'pic-js/pic_bulbon.gif'">Turn on the light</button>
+            <img id="myImage" src="pic-js/pic_bulboff.gif" style="width:100px">
+            <button onclick="document.getElementById('myImage').src = 'pic-js/pic_bulboff.gif'">Turn off the light</button>
+
+            <!--Phương thức document.write () chỉ nên được sử dụng để thử nghiệm.-->
+            <button type="button" onclick="document.write(5 + 6)">Try it</button>
+
+            <!--sử dụng hộp cảnh báo để hiển thị dữ liệu-->
+            <!--<script>window.alert('Hello')</script>-->
+            <!--Có thể bỏ qua từ khóa 'window'-->
+            <!--<script>alert('Hello')</script>-->
+
+            <!--Đối với mục đích gỡ lỗi, bạn có thể gọi console.log()phương thức trong trình duyệt để hiển thị dữ liệu.-->
+            <!--<script>console.log(5+6)</script>-->
+
+            <p id="demo2"></p>
+            <p id="demo3"></p>
+            <p id="demo4"></p>
+
+            <p id="demo5"></p>
+            <p id="demo6"></p>
+            <p id="demo7"></p>
+            <p id="demo8"></p>
+            <p id="demo9"></p>
+            <p id="demo10"></p>
+
+            <button onclick="myFunction11()">Random</button>
+            <p id="demo11"></p>
+
+            <button onclick="myFunction12()">Fisher Yates Method</button>
+            <p id="demo12"></p>
+
+            <p>The highest number is <span id="demo13"></span>.</p>
+            <p>The lowest number is <span id="demo14"></span>.</p>
+
+            <p>Sort car objects on age:</p>
+            <button onclick="myFunction15()">Sort</button>
+            <p id="demo15"></p>
+
+            <h2>JavaScript Array.forEach()</h2>
+            <p>Calls a function once for each array element.</p>
+            <p id="demo16"></p>
+
+            <h2>JavaScript Array.map()</h2>
+            <p>Creates a new array by performing a function on each array element.</p>
+            <p id="demo17"></p>
+
+            <h2>JavaScript Array.filter()</h2>
+            <p>Creates a new array with all array elements that passes a test.</p>
+            <p id="demo18"></p>
+
+            <h2>JavaScript Array.reduce()</h2>
+            <p>This example finds the sum of all numbers in an array:</p>
+            <p id="demo19"></p>
+
+            <h2>JavaScript Array.reduceRight()</h2>
+            <p>This example finds the sum of all numbers in an array:</p>
+            <p id="demo20"></p>
+
+            <h2>JavaScript Array.every()</h2>
+            <p>The every() method checks if all array values pass a test.</p>
+            <p id="demo21"></p>
+
+            <h2>JavaScript Array.some()</h2>
+            <p>The some() method checks if some array values pass a test.</p>
+            <p id="demo22"></p>
+
+            <h2>JavaScript Array.indexOf()</h2>
+            <p id="demo23"></p>
+
+            <h2>JavaScript Array.lastIndexOf()</h2>
+            <p id="demo24"></p>
+
+            <h2>JavaScript Array.find()</h2>
+            <p id="demo25"></p>
+
+            <h2>JavaScript Array.findIndex()</h2>
+            <p id="demo26"></p>
+
+            <h2>JavaScript Array.from()</h2>
+            <p id="demo27"></p>
+
+            <h2>JavaScript Array.keys())</h2>
+            <p id="demo28"></p>
+
+            <h2>JavaScript Array.entries()</h2>
+            <p id="demo29"></p>
+
+            <h2>JavaScript Array.includes()</h2>
+            <p id="demo30"></p>
+
+            <!-- <script>
+                let a, b, c;
+                a = 5; b = 6; c = a + b;
+                document.getElementById('demo2').innerHTML = "John" + " Doe";
+
+                let header = "Templates Literals"
+                let tags = ["template literals", "javascript", "es6"];
+                let html = `<h2>${header}</h2><ul>`;
+                    for (const x of tags) {
+                        html += `<li>${x}</li>`;
+                    }
+                    html += `</ul>`;
+                    document.getElementById("demo3").innerHTML = html;
+
+                const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                let flen = fruits.length;
+                //Cach1
+                let text = "<ul>";
+                    for (let i = 0; i < flen; i++) {
+                        text += "<li>" + fruits[i] + "</li>";
+                    }
+                    text += "</ul>";
+                    //document.getElementById("demo4").innerHTML = text;
+
+                fruits.push("Lemon"); // Adds a new element (Lemon) to fruits
+                //Cach2
+                let text2 = "<ul>";
+                fruits.forEach(myFunction4);
+                text2 += "</ul>";
+                document.getElementById("demo4").innerHTML = text2;
+                function myFunction4(value) {
+                    text2 += "<li>" + value + "</li>";
+                }
+
+                document.getElementById("demo5").innerHTML = "Mảng ban đầu: " + fruits;
+                document.getElementById("demo6").innerHTML = "Mảng sắp xếp theo alpha: " + fruits.sort();//sort the array
+                document.getElementById("demo7").innerHTML = "Mảng đảo ngược: " + fruits.reverse();
+
+                const points = [40, 100, 1, 5, 25, 10];
+                document.getElementById("demo8").innerHTML = "Mảng số ban đầu: " + points;
+                document.getElementById("demo9").innerHTML = "Mảng số được sắp xếp tăng dần: " + points.sort(function(a, b){return a - b});
+                document.getElementById("demo10").innerHTML = "Mảng số dc sắp xếp giảm dần: " + points.sort(function(a, b){return b - a});
+
+                document.getElementById("demo11").innerHTML = points;
+
+                
+                function myFunction11() {
+                    points.sort(function(a, b){return 0.5 - Math.random()});
+                    document.getElementById("demo11").innerHTML = points;
+                }
+
+                document.getElementById("demo12").innerHTML = points;
+                function myFunction12() {
+                    for (let i = points.length - 1; i > 0; i--) {
+                        let j = Math.floor(Math.random() * i)
+                        let k = points[i]
+                        points[i] = points[j]
+                        points[j] = k
+                    }
+                    document.getElementById("demo12").innerHTML = points;
+                }
+
+                document.getElementById("demo13").innerHTML = myArrMax(points);
+                function myArrMax(arr) {
+                    return Math.max.apply(null, arr);
+                }
+
+                document.getElementById("demo14").innerHTML = myArrMin(points);
+                function myArrMin(arr) {
+                    return Math.min.apply(null, arr);
+                }
+
+                const cars = [
+                    {type:"Volvo", year:2016},
+                    {type:"Saab", year:2001},
+                    {type:"BMW", year: 2010}
+                ];
+                displayCars();
+                //cars.sort(function(a, b){return a.year - b.year});
+                function myFunction15() {
+                    cars.sort(function(a, b) {
+                        let x = a.type.toLowerCase();
+                        let y = b.type.toLowerCase();
+                        if(x < y) {return -1;}
+                        if(x > y) {return 1;}
+                        return 0;
+                    });
+                    displayCars();
+                }
+                //displayCars();
+                function displayCars() {
+                    document.getElementById("demo15").innerHTML =
+                    cars[0].type + " " + cars[0].year + "<br>" +
+                    cars[1].type + " " + cars[1].year + "<br>" +
+                    cars[2].type + " " + cars[2].year;
+                }
+
+                const numbers = [45, 4, 9, 16, 25];
+                // const : Nó KHÔNG xác định một mảng hằng số. Nó định nghĩa một tham chiếu không đổi đến một mảng.
+                //Do đó, chúng ta vẫn có thể thay đổi các phần tử của một mảng không đổi.
+                let txt = "";
+                numbers.forEach(myFunction16);
+                document.getElementById("demo16").innerHTML = txt;
+                function myFunction16(value) {
+                    txt += value + "<br>";
+                }
+
+                const numbers2 = numbers.map(myFunction17);
+                document.getElementById("demo17").innerHTML = numbers2;
+                function myFunction17(value) {
+                    return value * 2;
+                }
+
+                const over18 = numbers.filter(myFunction18);
+                document.getElementById("demo18").innerHTML = over18;
+                function myFunction18(value) {
+                    return value > 18;
+                }
+                
+                let sum = numbers.reduce(myFunction19);
+                // chạy một hàm trên mỗi phần tử mảng để tạo (giảm nó thành) một giá trị duy nhất..
+                // hoạt động từ trái sang phải trong mảng.
+
+                //Phương thức reduce() có thể nhập mt giá trị ban đầu:
+                //let sum = numbers.reduce(myFunction19, 100);
+                document.getElementById("demo19").innerHTML = "the sum is " + sum;
+
+                let sum2 = numbers.reduceRight(myFunction19);
+                //reduceRight() tương tự reduce() nhưng chạy từ phải sang trái
+                document.getElementById("demo20").innerHTML = "The sum is " + sum2;
+
+                function myFunction19(total, value){
+                    return total + value;
+                }
+
+                //kiểm tra xem tất cả các giá trị mảng có vượt qua kiểm tra hay không.
+                let allOver18 = numbers.every(myFunction21);
+                document.getElementById("demo21").innerHTML = "All over 18 is " + allOver18;
+                function myFunction21(value) {
+                    return value > 18;
+                }
+
+                //Kiểm tra xem một số giá trị mảng có vượt qua kiểm tra hay không.
+                let someOver18 = numbers.some(myFunction22);
+                document.getElementById("demo22").innerHTML = "Some over 18 is " + someOver18;
+                function myFunction22(value, index, array) {
+                    return value > 18;
+                }
+
+                //tìm kiếm một giá trị phần tử trong một mảng và trả về vị trí của nó.
+                let position = fruits.indexOf("Apple") + 1;
+                document.getElementById("demo23").innerHTML = "Apple is found in position " + position;
+
+                //Array.lastIndexOf()giống như Array.indexOf(), nhưng trả về vị trí của lần xuất hiện cuối cùng của phần tử được chỉ định.
+                let position2 = fruits.lastIndexOf("Apple") + 1;
+                document.getElementById("demo24").innerHTML = "Apple is found in position " + position;
+
+                //trả về giá trị của phần tử mảng đầu tiên vượt qua một hàm kiểm tra.
+                let first = numbers.find(myFunction25);
+                document.getElementById("demo25").innerHTML = "First number over 18 is " + first;
+                function myFunction25(value, index, array) {
+                    return value > 18;
+                }
+
+                //trả về chỉ số của phần tử mảng đầu tiên vượt qua một hàm kiểm tra.
+                document.getElementById("demo26").innerHTML = "First number over 18 has index " + numbers.findIndex(myFunction26);
+                function myFunction26(value, index, array) {
+                    return value > 18;
+                }
+
+                //trả về một đối tượng Array từ bất kỳ đối tượng nào có thuộc tính length hoặc bất kỳ đối tượng nào có thể lặp lại.
+                document.getElementById("demo27").innerHTML = Array.from("ABCDEF");
+
+                //trả về một đối tượng Array Iterator với các khóa của một mảng.
+                const keys = fruits.keys();
+                let text3 = "";
+                for (let x of keys) {
+                    text3 += x + "<br>";
+                }
+                document.getElementById("demo28").innerHTML = text3;
+
+                //trả về một đối tượng Array Iterator với các cặp khóa / giá trị:
+                let f = fruits.entries();
+                for (let x of f) {
+                    document.getElementById("demo29").innerHTML += x + "<br>";
+                }
+
+                //kiểm tra xem một phần tử có trong một mảng hay không (bao gồm cả NaN, không giống như indexOf).
+                document.getElementById("demo30").innerHTML = fruits.includes("Mango");
+            </script> -->
+        </div>
+
+        <div class="dates">
+            <h2>JavaScript new Date()</h2>
+            <p id="demo31"></p>
+
+            <h2>Khi bạn hiển thị một đối tượng ngày tháng trong HTML, nó sẽ tự động được chuyển đổi thành một chuỗi, với toString()</h2>
+            <p id="demo32"></p>
+
+            <h2>toUTCString() chuyển đổi ngày thành chuỗi UTC (tiêu chuẩn hiển thị ngày).</h2>
+            <p id="demo33"></p>
+
+            <h2>toDateString() chuyển đổi một ngày thành một định dạng dễ đọc hơn:</h2>
+            <p id="demo34"></p>
+
+            <h2>toISOString() chuyển đổi đối tượng Ngày thành một chuỗi, sử dụng định dạng tiêu chuẩn ISO:</h2>
+            <p id="demo35"></p>
+
+            <h2>JavaScript getTime()</h2>
+            <p id="demo36"></p>
+
+            <h2>JavaScript getFullYear()</h2>
+            <p id="demo37"></p>
+
+            <h2>JavaScript getMonth()</h2>
+            <p id="demo38"></p>
+            <p id="demo39"></p>
+
+            <h2>JavaScript getDate()</h2>
+            <p id="demo40"></p>
+
+            <h2>JavaScript getHours()</h2>
+            <p id="demo41"></p>
+
+            <h2>JavaScript getMinutes()</h2>
+            <p id="demo42"></p>
+
+            <h2>JavaScript getSeconds()</h2>
+            <p id="demo43"></p>
+
+            <h2>JavaScript getMilliseconds()</h2>
+            <p id="demo44"></p>
+
+            <h2>JavaScript getDay()</h2>
+            <p id="demo45"></p>
+            <p id="demo46"></p>
+
+
+            <script>
+                //JavaScript Date Object cho phép chúng tôi làm việc với các ngày tháng:
+                const d = new Date();
+                document.getElementById("demo31").innerHTML = d;
+                document.getElementById("demo32").innerHTML = d.toString();
+                document.getElementById("demo33").innerHTML = d.toUTCString();
+                document.getElementById("demo34").innerHTML = d.toDateString();
+                document.getElementById("demo35").innerHTML = d.toISOString();
+
+                //trả về số mili giây kể từ ngày 1 tháng 1 năm 1970
+                document.getElementById("demo36").innerHTML = d.getTime();
+                
+                //trả về năm của một ngày dưới dạng một số có bốn chữ số:
+                document.getElementById("demo37").innerHTML = d.getFullYear();
+
+                //trả về tháng của ngày dưới dạng số (0-11):
+                document.getElementById("demo38").innerHTML = d.getMonth();
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                document.getElementById("demo39").innerHTML = months[d.getMonth()];
+
+                //trả về ngày của một ngày dưới dạng số (1-31):
+                document.getElementById("demo40").innerHTML = d.getDate();
+
+                //trả về số giờ trong ngày dưới dạng số (0-23):
+                document.getElementById("demo41").innerHTML = d.getHours();
+
+                //trả về số phút của một ngày dưới dạng số (0-59):
+                document.getElementById("demo42").innerHTML = d.getMinutes();
+                
+                //trả về số giây của ngày dưới dạng số (0-59):
+                document.getElementById("demo43").innerHTML = d.getSeconds();
+
+                //trả về mili giây của một ngày dưới dạng số (0-999):
+                document.getElementById("demo44").innerHTML = d.getMilliseconds();
+
+                //trả về ngày trong tuần của một ngày dưới dạng số (0-6):
+                document.getElementById("demo45").innerHTML = d.getDay();
+                const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                document.getElementById("demo46").innerHTML = days[d.getDay()];
+            </script>
+        </div>
+        <hr>
+        <div class="math">
+            <h2>JavaScript Math.round()</h2>
+            <p id="demo47"></p>
+
+            <h2>JavaScript Math.ceil()</h2>
+            <p id="demo48"></p>
+
+            <h2>JavaScript Math.floor()</h2>
+            <p id="demo49"></p>
+
+            <h2>JavaScript Math.trunc()</h2>
+            <p id="demo50"></p>
+
+            <h2>JavaScript Math.sign()</h2>
+            <p id="demo51"></p>
+            <p id="demo52"></p>
+            <p id="demo53"></p>
+
+            <h2>JavaScript Math.pow()</h2>
+            <p id="demo54"></p>
+
+            <h2>JavaScript Math.sqrt()</h2>
+            <p id="demo55"></p>
+
+            <h2>JavaScript Math.abs()</h2>
+            <p id="demo56"></p>
+
+            <h2>JavaScript Math.sin()</h2>
+            <p id="demo57"></p>
+
+            <h2>JavaScript Math.cos()</h2>
+            <p id="demo58"></p>
+
+            <h2>JavaScript Math.min()</h2>
+            <p id="demo59"></p>
+
+            <h2>JavaScript Math.max()</h2>
+            <p id="demo60"></p>
+
+            <h2>JavaScript Math.random()</h2>
+            <p id="demo61"></p>
+
+            <h2>JavaScript Math.log()</h2>
+            <p id="demo62"></p>
+
+            <h2>JavaScript Math.log2()</h2>
+            <p id="demo63"></p>
+
+            <h2>JavaScript Math.log10()</h2>
+            <p id="demo64"></p>
+
+            <h2>Random integer from 0 to 9</h2>
+            <p id="demo65"></p>
+
+            <h2>Random integer from 0 to 10</h2>
+            <p id="demo66"></p>
+
+            <h2>Random integer from 0 to 99</h2>
+            <p id="demo67"></p>
+
+            <h2>Random integer from 0 to 100</h2>
+            <p id="demo68"></p>
+
+            <h2>Random integer from 1 to 10</h2>
+            <p id="demo69"></p>
+
+            <h2>Random integer from 1 to 100</h2>
+            <p id="demo70"></p>
+
+            <h2>getRndInteger[min, max)</h2>
+            <button onclick="document.getElementById('demo71').innerHTML = getRndInteger1(0, 100)">[0, 100)</button>
+            <p id="demo71"></p>
+
+            <h2>getRndInteger[min, max]</h2>
+            <button onclick="document.getElementById('demo72').innerHTML = getRndInteger2(0, 100)">[0, 100]</button>
+            <p id="demo72"></p>
+
+
+            <!-- <script>
+                //Trả về x được làm tròn thành số nguyên gần nhất của nó
+                document.getElementById("demo47").innerHTML = Math.round(4.6);
+
+                //Math.ceil(x)trả về giá trị của x được làm tròn LÊN số nguyên gần nhất của nó:
+                document.getElementById("demo48").innerHTML = Math.ceil(4.2);
+
+                //Math.floor(x)trả về giá trị của x được làm tròn XUỐNG số nguyên gần nhất của nó:
+                document.getElementById("demo49").innerHTML = Math.floor(4.2);
+
+                //Math.trunc(x)trả về phần nguyên của x:
+                document.getElementById("demo50").innerHTML = Math.trunc(4.2);
+
+                //Math.sign(x)trả về nếu x là âm, null hoặc dương:
+                document.getElementById("demo51").innerHTML = Math.sign(4);
+                document.getElementById("demo52").innerHTML = Math.sign(0);
+                document.getElementById("demo53").innerHTML = Math.sign(-4);
+
+                //Math.pow(x, y)trả về giá trị của x thành lũy thừa của y:
+                document.getElementById("demo54").innerHTML = Math.pow(8, 2);
+
+                //Math.sqrt(x)trả về căn bậc hai của x:
+                document.getElementById("demo55").innerHTML = Math.sqrt(64);
+
+                //Math.abs(x)trả về giá trị tuyệt đối (dương) của x:
+                document.getElementById("demo56").innerHTML = Math.abs(-4.7);
+
+                //Math.sin(x)trả về sin (giá trị từ -1 đến 1) của góc x (tính bằng radian).
+                //Muốn sử dụng độ thay vì radian thì phải đổi đơn vị: radian = độ * PI / 180
+                document.getElementById("demo57").innerHTML = Math.sin(90 * Math.PI / 180);
+
+                //Tương tự sin
+                document.getElementById("demo58").innerHTML = Math.cos(0 * Math.PI / 180);
+
+                //Math.min()và Math.max()có thể được sử dụng để tìm giá trị thấp nhất hoặc cao nhất trong danh sách các đối số:
+                document.getElementById("demo59").innerHTML = Math.min(0, 150, 30, 20, -8, -200);
+                document.getElementById("demo60").innerHTML = Math.max(0, 150, 30, 20, -8, -200);
+                
+                //Math.random()trả về một số ngẫu nhiên giữa 0 (bao gồm) và 1 (không bao gồm):
+                document.getElementById("demo61").innerHTML = Math.random();
+
+                //Math.log(x)trả về lôgarit tự nhiên của x.
+                document.getElementById("demo62").innerHTML = Math.log(1);
+
+                //Math.log2(x)trả về logarit cơ số 2 của x.
+                document.getElementById("demo63").innerHTML = Math.log2(1);
+
+                //Math.log10(x)trả về logarit cơ số 10 của x.
+                document.getElementById("demo64").innerHTML = Math.log10(1000);
+
+                // Returns a random integer from 0 to 9:
+                document.getElementById("demo65").innerHTML = Math.floor(Math.random() * 10);
+
+                // Returns a random integer from 0 to 10:
+                document.getElementById("demo66").innerHTML = Math.floor(Math.random() * 11);
+
+                // Returns a random integer from 0 to 99:
+                document.getElementById("demo67").innerHTML = Math.floor(Math.random() * 100);
+
+                // Returns a random integer from 0 to 100:
+                document.getElementById("demo68").innerHTML = Math.floor(Math.random() * 101);
+
+                // Returns a random integer from 1 to 10:
+                document.getElementById("demo69").innerHTML = Math.floor(Math.random() * 10) + 1;
+
+                // Returns a random integer from 1 to 100:
+                document.getElementById("demo70").innerHTML = Math.floor(Math.random() * 100) + 1;
+
+                //Hàm JavaScript này luôn trả về một số ngẫu nhiên giữa tối thiểu (bao gồm) và tối đa (loại trừ):
+                function getRndInteger1(min, max) {
+                    return Math.floor(Math.random() * (max - min)) + min;
+                }
+                //Hàm JavaScript này luôn trả về một số ngẫu nhiên giữa tối thiểu và tối đa (bao gồm cả hai):
+                function getRndInteger2(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+            </script> -->
+        </div>
+        <hr>
+        <div class="comparisons">
+            <h2>JavaScript Comparison</h2>
+            <p>==/So sánh x = 5 có == 8 không: <p id="demo73"></p></p>
+            <p>==/So sánh x = 5 có == 5 không: <p id="demo74"></p></p>
+            <p>==/So sanh x = 5 có == "5" không: <p id="demo75"></p></p>
+
+            <p>===/So sánh x = 5 có === 8 không: <p id="demo76"></p></p>
+            <p>===/So sánh x = 5 có === 5 không: <p id="demo77"></p></p>
+            <p>===/So sanh x = 5 có === "5" không: <p id="demo78"></p></p>
+
+            <p>!=/So sánh x = 5 có != 8 không: <p id="demo79"></p></p>
+            <p>!==/So sánh x = 5 có !== 8 không: <p id="demo80"></p></p>
+            <p>!==/So sanh x = 5 có !== 5 không: <p id="demo81"></p></p>
+            <p>!==/So sanh x = 5 có !== "5" không: <p id="demo82"></p></p>
+
+            <p>Toán tử điểu kiện: Trường hợn này nếu số nhập vào &lt; 18 thì sẽ hiện dòng chữ "Too young" và ngược lại sẽ hiện "Old enough"</p>
+            <input type="number" id="age" value="18">
+            <button onclick="conditional()">Click</button>
+            <p id="demo83"></p>
+
+
+            <!-- <script>
+                //== equal to
+                let x = 5;
+                document.getElementById("demo73").innerHTML = (x == 8);
+                document.getElementById("demo74").innerHTML = (x == 5);
+                document.getElementById("demo75").innerHTML = (x == "5"); 
+
+                //=== equal value and equal type
+                document.getElementById("demo76").innerHTML = (x === 8);
+                document.getElementById("demo77").innerHTML = (x === 5);
+                document.getElementById("demo78").innerHTML = (x === "5");
+
+                //!= not equal
+                document.getElementById("demo79").innerHTML = (x != 8);
+
+                //!== not equal value or not equal type
+                document.getElementById("demo80").innerHTML = (x !== 8);
+                document.getElementById("demo81").innerHTML = (x !== 5);
+                document.getElementById("demo82").innerHTML = (x !== "5");
+
+                function conditional() {
+                    let age = document.getElementById("age").value;
+                    let voteable = (age < 18) ? "Too Young" : "Old enough";
+                    document.getElementById("demo83").innerHTML = voteable + " to vote!";
+                }
+            </script> -->
+        </div>
+        <hr>
+        <div class="if">
+            <h2>JavaScript if .. else</h2>
+            <p id="demo84"></p>
+            <!-- <script>
+                const hour = new Date().getHours();
+                let lc;
+                if (hour == 0) lc = "Greeting the new day!";
+                else if (hour >= 1 && hour < 11) lc = "Good morning!";
+                else if (hour >= 11 && hour < 18) lc = "Good afternoon!";
+                else if (hour >= 18 && hour < 22) lc = "Good evening!"
+                else lc = "Good night!";
+                document.getElementById("demo84").innerHTML = lc;
+            </script> -->
+        </div>
+        <hr>
+        <div class="switch">
+            <h2>JavaScript switch</h2>
+            <p id="demo85"></p>
+            <p id="demo86"></p>
+            <!-- <script>
+                let day;
+                switch (new Date().getDay()) {
+                    case 0:
+                        day = "Sunday";
+                        break;
+                    case 1:
+                        day = "Monday";
+                        break;
+                    case 2:
+                        day = "Tuesday";
+                        break;
+                    case 3:
+                        day = "Wednesday";
+                        break;
+                    case 4:
+                        day = "Thurday";
+                        break;
+                    case 5:
+                        day = "Friday";
+                        break;
+                    case 6:
+                        day = "Saturday";
+                        break;
+                }
+                document.getElementById("demo85").innerHTML = "Today is: " + day;
+
+                let text4;
+                switch (new Date().getDay()) {
+                    case 6:
+                        text4 = "Today is Saturday";
+                        break;
+                    case 0:
+                        text4 = "Today is Sunday";
+                        break;
+                    default:
+                        text4 = "Looking forward to the Weekend";
+                    }
+                document.getElementById("demo86").innerHTML = text4;
+            </script> -->
+        </div>
+        <hr>
+        <div class="loop">
+            <h2>JavaScript For Loop</h2>
+            <p id="demo87"></p>
+
+            <h2>JavaScript For/in Loop</h2>
+            <p id="demo88"></p>
+
+            <h2>JavaScript For/of Loop</h2>
+            <p id="demo89"></p>
+            <p id="demo90"></p>
+
+            <h2>JavaScript While Loop</h2>
+            <p id="demo91"></p>
+
+            <h2>JavaScript While/do Loop</h2>
+            <p id="demo92"></p>
+
+            <!-- <script>
+                const name = ["Anh", "Loan", "Duyen", "Thuan", "Minh", "Hien", "Quynh"];
+                let text5 = "";
+                //lặp lại một khối mã nhiều lần
+                for (let i = 0; i < name.length; i++) {
+                    text5 += name[i] + "<br>";
+                }
+                document.getElementById("demo87").innerHTML = text5;
+
+                //lặp qua các thuộc tính của một Đối tượng
+                const person = {fname: "Dao", lname: "Duyen", age: 22};
+                let t6 = "";
+                for (let x in person) {
+                    t6 += person[x] + " ";
+                }
+                document.getElementById("demo88").innerHTML = t6;
+
+                //lặp qua các giá trị của một đối tượng có thể lặp lại.
+                let t7 = "";
+                for (let x of name) {
+                    t7 += x + " ";
+                }
+                document.getElementById("demo89").innerHTML = t7;
+
+                let t8 = "Loan";
+                let t9 = "";
+                for (let x of t8) {t9 += x + " ";}
+                document.getElementById("demo90").innerHTML = t9;
+
+                //lặp đi qua một khối mã miễn là một điều kiện được chỉ định là đúng.
+                let i = 0, j = 0, t10 = "", t11 = "";
+                while (i < 6) {
+                    t10 += "The number is " + i + "<br>";
+                    i++;
+                }
+                document.getElementById("demo91").innerHTML= t10;
+
+                //là một biến thể của vòng lặp while. 
+                //Vòng lặp này sẽ thực thi khối mã một lần, 
+                //trước khi kiểm tra xem điều kiện có đúng không, 
+                //sau đó nó sẽ lặp lại vòng lặp miễn là điều kiện là đúng.
+                do {
+                    t11 += "The number is " + i + " ";
+                    i++;
+                }
+                while (i < 10);
+                document.getElementById("demo92").innerHTML = t11;
+            </script> -->
+        </div>
+        <hr>
+        <div class="sets">
+            <h2>JavaScript Sets</h2>
+            <p id="demo93"></p>
+            <p id="demo94"></p>
+            <p id="demo95"></p>
+            <p id="demo96"></p>
+            <!-- <script>
+                // Create a Set
+                const letters = new Set(["a", "b", "c"]);
+                document.getElementById("demo93").innerHTML = letters.size;
+                // Add Values to the Set
+                letters.add("d");
+                document.getElementById("demo94").innerHTML = letters.size;
+                // List all Elements
+                let t12 = "";
+                letters.forEach(function(value) {
+                    t12 += value;
+                })
+                document.getElementById("demo95").innerHTML = t12;
+
+                letters.add("e");
+                //trả về một đối tượng trình vòng lặp mới chứa tất cả các giá trị trong một Tập hợp:
+                let t13 = "";
+                for (const x of letters.values()) {
+                    t13 += x;
+                }
+                document.getElementById("demo96").innerHTML = t13;
+            </script> -->
+        </div>
+        <hr>
+        <div class="map">
+            <h2>JavaScript Map Objects</h2>
+            <p id="demo97"></p>
+            <p id="demo98"></p>
+            <p id="demo99"></p>
+            <p id="demo100"></p>
+            <!-- <script>
+                // Create a Map
+                const fruits2 = new Map([
+                    ["apple", 500],
+                    ["bananas", 300],
+                    ["oranges", 200]
+                ]);
+                document.getElementById("demo97").innerHTML = fruits2.size;
+                // Set Map Values
+                fruits2.set("melon", 100);
+                fruits2.set("strawberry", 50);
+                document.getElementById("demo98").innerHTML = fruits2.get("apple");// Returns 500
+                //loại bỏ một phần tử Bản đồ:
+                fruits2.delete("apple");
+                document.getElementById("demo99").innerHTML = fruits2.has("apples");
+                // List all entries
+                let t14 = "";
+                fruits2.forEach(function(value, key) {
+                    t14 += key + ' = ' + value + "<br>";
+                })
+                //Hoặc dùng for/of
+                document.getElementById("demo100").innerHTML = t14;
+            </script> -->
+        </div>
+        <hr>
+        <div class="typeof">
+            <h2>The JavaScript typeof Operator</h2>
+            <p id="demo101"></p>
+            
+            <!-- <script>
+                /*
+                *Trong JavaScript, có 5 kiểu dữ liệu khác nhau có thể chứa các giá trị:
+                string, number, boolean, object, function
+
+                *Có 6 loại đối tượng:
+                Object, Date, Array, String, Number, boolean
+
+                *Và 2 kiểu dữ liệu không thể chứa giá trị:
+                null, undefined
+                */
+                document.getElementById("demo101").innerHTML = 
+                "'John': " + typeof "john" + "<br>" +
+                "3.14 : " + typeof 3.14 + "<br>" +
+                "NaN: " + typeof NaN + "<br>" +
+                "false: " + typeof false + "<br>" +
+                "[1,2,3,4]: " + typeof [1,2,3,4] + "<br>" +
+                "{name:'john', age:34}: " + typeof {name:'john', age:34} + "<br>" +
+                "new Date(): " + typeof new Date() + "<br>" +
+                "function() {}: " + typeof function () {} + "<br>" +
+                "myCar (chưa được khai bao): " + typeof myCar + "<br>" +
+                "null: " + typeof null;
+            </script> -->
+        </div>
+        <hr>
+        <div class="type_conversion">
+            <h2>JavaScript Type Conversion</h2>
+            <p id="demo102"></p>
+            <p id="demo103"></p>
+            
+            <!-- <script>
+                document.getElementById("demo102").innerHTML = Number("3.14"); //return 3.14
+                //Number("") //return 0
+                //Number(" ") //return 0
+                //Number("99 88") //return NaN
+
+                //Method chuyển đổi thành số: Number(), parseFloat(), parseInt()
+
+                //Toán tử một ngôi + có thể được sử dụng để chuyển đổi một biến thành một số:
+                let y = "5"; //y is a string
+                let xx = + y ; //xx is a number
+                //Nếu không thể chuyển đổi biến, nó vẫn sẽ trở thành một số, nhưng với giá trị NaN (Không phải là một Số):
+                let yy = "John"; //yy is a string
+                let x2 = + yy; //x2 is a number (NaN)
+                document.getElementById("demo103").innerHTML = x2;
+
+                //Method toàn cục String() có thể chuyển đổi số thành chuỗi và phương pháp số toString() cũng làm như vậy.
+                //Một số phương pháp khác tương tự để chuyển đổi thành chuối.
+                //toExponential(), toFixed(), toPrecision()
+
+            </script> -->
+        </div>
+        <hr>
+        <div class="bitwise">
+            <h2>JavaScript Bitwise</h2>
+            <p id="demo104"></p>
+            <p id="demo105"></p>
+            <!-- <script>
+                /*
+                (*) & - AND - trả về 1 nếu cả hai bit đều là 1
+                5 & 1 - 0101 & 0001 - 0001 - 1
+
+                (*) | - OR - trả về 1 nếu một/hai trong hai bit là 1
+                5 | 1 - 0101 | 0001 - 0101 - 5
+
+                (*) ^ - XOR - trả về 1 nếu chỉ một trong hai bit là 1
+                5 ^ 1 - 0101 ^ 0001 - 0100 - 1
+
+                (*) ~ - NOT - phủ định bit
+                ~ 5 - ~ 0101 - 1010 - 10
+
+                (*) << - Zero fill left shift
+                5 << 1 - 0101 << 1 - 1010 - 10
+
+                (*) >> - Signed right shift
+                5 >> 1 - 0101 >> 1 - 0010 - 2
+                
+                (*) >>> - Zero fill right shift
+                5 >>> 1 - 0101 >>> 1 - 0010 - 2
+                */
+
+                //JavaScript lưu trữ các số dưới dạng số dấu phẩy động 64 bit, nhưng tất cả các phép toán bit đều được thực hiện trên số nhị phân 32 bit.
+
+                //Chuyển đổi thập phân sang nhị phân
+                document.getElementById("demo104").innerHTML = dec2bin(-5);
+                function dec2bin(dec) {
+                    return (dec >>> 0).toString(2);
+                }
+                //Chuyển đổi nhị phân sang thập phân
+                document.getElementById("demo105").innerHTML = bin2dec(101);
+                function bin2dec(bin) {
+                    return parseInt(bin, 2).toString(10);
+                }
+            </script> -->
+        </div>
+        <hr>
+        <div class="error">
+            <h2>JavaScript Error Handling</h2>
+            <p id="demo106"></p>
+            <p>Please input a number between 5 and 10:</p>
+            <input type="text" id="demo107">
+            <button type="button" onclick="myFunction107()">Test input</button>
+            <p id="p01"></p>
+            <!-- <script>
+                //try() - xác định một khối mã để chạy (để thử).
+                //catch() - xác định một khối mã để xử lý bất kỳ lỗi nào.
+                //finally() - xác định một khối mã để chạy bất kể kết quả.
+                //throw() - xác định một lỗi tùy chỉnh.
+
+                try {
+                    adddlert("Welcome guest!");
+                }
+                catch(err) {
+                    document.getElementById("demo106").innerHTML = err.message;
+                }
+
+                function myFunction107() {
+                    const mess = document.getElementById("p01");
+                    mess.innerHTML = "";
+                    let x = document.getElementById("demo107").value;
+                    try {
+                        if (x == "") throw "empty";
+                        if (isNaN(x)) throw "not a number";
+                        x = Number(x);
+                        if (x < 5) throw "too low";
+                        if (x > 10) throw "too hight";
+                    }
+                    catch(err) {
+                        mess.innerHTML = "Error is " + err + ".";
+                    }
+                    finally {
+                        document.getElementById("demo107").value = "";
+                    }
+                }
+            </script> -->
+        </div>
+        <hr>
+        <div class="scope">
+            
+                <!--
+                JavaScript có 3 loại phạm vi:
+                    Phạm vi khối (let, cost)
+                    Phạm vi chức năng
+                    Phạm vi toàn cầu
+                
+                    Các biến được khai báo bên trong khối {} không thể được truy cập từ bên ngoài khối
+                    Các biến được khai báo với từ khóa var KHÔNG được có phạm vi khối.
+                -->
+            
+        </div>
+        <hr>
+        <div class="arrow_function">
+            <p id="demo108"></p>
+            <!-- <script>
+                /*
+                thay vì:
+                hello = function() { return "Hello World!";}
+                thì dùng:
+                hello = () => { return "Hello World!";}
+                hoặc:
+                hello = () => "Hello World!";
+                Lưu ý: Điều này chỉ hoạt động nếu hàm chỉ có một câu lệnh.
+                */
+
+                hello = (val) => "Hello " + val;
+                document.getElementById("demo108").innerHTML = hello("Universe!");
+            </script> -->
+        </div>
+        <hr>
+        <div class="class_JS">
+            <h2>JavaScript Class Method</h2>
+            <p id="demo109"></p>
+            <!-- <script>
+                //Sử dụng từ khóa class để tạo một lớp học.
+                class Car {
+                    //Luôn thêm một constructor() phương thức.
+                    constructor(name, year) {
+                        this.name = name;
+                        this.year = year;
+                    }
+                    age() {
+                        let date = new Date();
+                        return date.getFullYear() - this.year;
+                    }
+                }
+                let myCar = new Car("Ford", 2014);
+                document.getElementById("demo109").innerHTML = "My car is " + myCar.age() + " year old.";
+            </script> -->
+        </div>
+        <hr>
+        <div class="modun_JS">
+            <h2>JavaScript Modules</h2>
+            <p id="demo110"></p>
+            <script>
+                import {name1, age1} from "./exjs1_js";
+                document.getElementById("demo110").innerHTML = "My name is " + name1 + ", I am " + age1 + ".";
+            </script>
+        </div>
+        <hr>
+        <div class="json">
+            <h2>Create Object from JSON String</h2>
+            <p id="demo111"></p>
+            <!-- <script>
+                let t15 = '{"employees":[' + 
+                '{"firstName":"John","lastName":"Doe" },' + 
+                '{"firstName":"Anna","lastName":"Smith" },' +
+                '{"firstName":"Peter","lastName":"Jones" }]}';
+                const obj = JSON.parse(t15);
+                document.getElementById("demo111").innerHTML = obj.employees[1].firstName + " " + obj.employees[1].lastName;
+            </script> -->
+        </div>
+        <hr>
+        <div class="obj">
+            <h2>JavaScript Object</h2>
+            <p id="demo112"></p>
+            <p id="demo113"></p>
+            <p id="demo114"></p>
+            <p id="demo115"></p>
+            <p id="demo116"></p>
+            
+            <h3>JavaScript Getter/Setter</h3>
+            <p id="demo117"></p>
+            <p id="demo118"></p>
+
+            <p id="demo119"></p>
+            <p id="demo120"></p>
+            <!-- <script>
+                /*
+                Trong JavaScript, hầu hết "mọi thứ" đều là một đối tượng:
+                - Booleans, Numbers, Strings có thể là các đối tượng nếu được định nghĩa bằng từ khóa new.
+                - Dates, Maths, Regular expressions (Biểu thức chính quy), Arrays, Functions, Objects luôn là các đối tượng.
+                Tất cả các giá trị JS, ngoại trừ các giá trị nguyên thủy, đều là các đối tượng.
+                */
+               //Tao mot doi tuong
+               const person2 = {
+                firstName: "Vo",
+                lastName: "Que Duyen",
+                age: 27,
+                eyeColor: "blue"
+               };
+
+               const person3 = {};
+               person3.firstName = "Dao";
+               person3.lastName = "My Loan";
+               person3.age = 23;
+               person3.eyeColor = "Yellow";
+               person3.gender = "Women";
+
+               const x3 = person2;
+               x.age = 24; // Will change both x.age and person.age
+               /*
+               Thuộc tính là các giá trị được liên kết với một đối tượng JavaScript.
+               Đối tượng JavaScript là một tập hợp các thuộc tính không có thứ tự.
+               Các thuộc tính thường có thể được thay đổi, thêm và xóa, nhưng một số thuộc tính chỉ được đọc.
+               Cú pháp để truy cập thuộc tính của một đối tượng là:
+                objectName.property      // person.age
+                objectName["property"]   // person["age"]
+                objectName[expression]   // x = "age"; person[x]
+                
+                Dùng từ khóa delete để xóa thuộc tính.
+               */
+
+               person2.cars = {
+                car1: "Ford",
+                car2: "BMW",
+                car3: "Fiat"
+               };
+               /*
+               Câu lệnh JS for/in lặp qua các thuộc tính của một đối tượng
+               */
+              let t16 = "";
+              for( let x in person3) {
+                t16 += person3[x] + " ";
+              }
+              document.getElementById("demo112").innerHTML = t16;
+              document.getElementById("demo113").innerHTML = person2.cars.car3;
+
+              person3.cars = [
+                {name:"Ford", models: ["Fiesta", "Focus", "Mustang"]},
+                {name: "BMW", models: ["320", "X3", "X5"]},
+                {name: "Fiat", models: ["500", "Panda"]}
+              ];
+              for(let i in person3.cars) {
+                x += "<h3>" + person3.cars[i].name + "</h3>";
+                for (let j in person3.cars[i].models) {
+                    x += person3.cars[i].models[j] + "<br>";
+                }
+              }
+              document.getElementById("demo114").innerHTML = x;
+
+              //Truy cập đối tượng
+              /*
+              Hiển thị obj theo thuộc tính
+              Hiển thị obj theo for/in
+              Hiển thị obj bằng cách dùng Object.values()
+              Hiển thị bằng cách dùng JSON.stringify()
+              */
+             const display = Object.values(person);
+             document.getElementById("demo115").innerHTML = display;
+             const display2 = JSON.stringify(person);
+             document.getElementById("demo116").innerHTML = display2;
+
+             const person4 = {
+                firstName: "Dao",
+                lastName: "Anh",
+                language: "en",
+                sex: "",
+                get lang() {
+                    return this.language.toUpperCase();
+                },
+                set gender(gd) {
+                    this.sex = gd;
+                }
+             };
+             person4.gender = "Woman";
+             //Sự khác nhau giữa việc sử dung hàm JS và Getter là cách truy cập. Getter truy cập dưới 
+             document.getElementById("demo117").innerHTML = person4.lang;
+             document.getElementById("demo118").innerHTML = person4.sex;
+            </script> -->
+        </div>
+        <hr>
+        <script src="exjs1_js.js"></script>
+    </body>
+</html>
